@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- This sets the character encoding so special characters display correctly -->
+  <meta charset="UTF-8" />
+
+  <!-- This makes the page look good on mobile screens (responsive design) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>My To-Do List</title>
+
+  <!-- Link to our external CSS file for all the styling -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== MAIN APP CONTAINER ===== -->
+  <div class="app-wrapper">
+
+    <!-- ===== HEADER SECTION ===== -->
+    <header class="app-header">
+      <div class="header-icon">✅</div>
+      <h1 class="app-title">My To-Do List</h1>
+      <p class="app-subtitle">Stay organised, one task at a time</p>
+    </header>
+
+    <!-- ===== STATS BAR: Shows task counts ===== -->
+    <div class="stats-bar">
+      <!-- These spans will be updated dynamically by JavaScript -->
+      <div class="stat-item">
+        <span class="stat-number" id="total-count">0</span>
+        <span class="stat-label">Total</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number" id="completed-count">0</span>
+        <span class="stat-label">Done</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number" id="pending-count">0</span>
+        <span class="stat-label">Pending</span>
+      </div>
+    </div>
+
+    <!-- ===== ADD TASK SECTION ===== -->
+    <div class="add-task-section">
+      <!-- Input field where user types a new task -->
+      <input
+        type="text"
+        id="task-input"
+        class="task-input"
+        placeholder="What do you need to do today?"
+        maxlength="120"
+      />
+      <!-- Button to add the task -->
+      <button id="add-btn" class="add-btn" onclick="addTask()">
+        + Add
+      </button>
+    </div>
+
+    <!-- ===== FILTER & CLEAR SECTION ===== -->
+    <div class="filter-bar">
+      <!-- Filter buttons to show All / Active / Completed tasks -->
+      <div class="filter-buttons">
+        <button class="filter-btn active" onclick="filterTasks('all')">All</button>
+        <button class="filter-btn" onclick="filterTasks('active')">Active</button>
+        <button class="filter-btn" onclick="filterTasks('completed')">Completed</button>
+      </div>
+
+      <!-- Button to delete all completed tasks at once -->
+      <button class="clear-btn" onclick="clearCompleted()">
+        🗑 Clear Done
+      </button>
+    </div>
+
+    <!-- ===== TASK LIST ===== -->
+    <!-- Tasks will be added here dynamically by JavaScript -->
+    <ul class="task-list" id="task-list"></ul>
+
+    <!-- ===== EMPTY STATE MESSAGE (shown when no tasks exist) ===== -->
+    <div class="empty-state" id="empty-state">
+      <div class="empty-icon">📝</div>
+      <p>No tasks yet. Add one above!</p>
+    </div>
+
+  </div><!-- end .app-wrapper -->
+
+  <!-- Link to our external JavaScript file -->
+  <!-- We put it at the BOTTOM so the HTML loads first -->
+  <script src="script.js"></script>
+
+</body>
+</html>
